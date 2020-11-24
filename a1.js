@@ -22,14 +22,12 @@ document.addEventListener("DOMContentLoaded", function() {
         let list= document.querySelector('ul#galleryList ');
          let listI=document.createElement("li");
             listI.innerHTML =`${li}`;
-    listI.addEventListener('click',function(e){
+    listI.addEventListener('click',function(){
              //display for each garlley
-        console.log(e.target.innerHTML);
-     let tar =e.target.innerHTML;
       document.querySelector('div.loader').style.display= "block";
-
-        let Gallery = `https:www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?galley= ${e.target.innerHTML}`;
-      fetch(Gallery).then((resp)=> resp.json()).then(g => {listGallery(g)}).catch(error => console.error(error));
+        let Gallery = `https:www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?galley=${li}`;
+      
+        fetch(Gallery).then((res)=> res.json()).then(g => {listGallery(g)}).catch(error => console.error(error));
         function listGallery(g){
         let A= document.querySelector('div.a section');
            A.style.display = "inline-block";
