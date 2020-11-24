@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
      let tar =e.target.innerHTML;
       document.querySelector('div.loader').style.display= "block";
         let Gallery = "https:www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?galley= `${tar}";
-      fetch(Gallery).then((resp)=>resp.json()).then(g=>{listGallery(g)}).catch(error=>console.error(error));
+      fetch(Gallery).then((res)=> res.json()).then(g => {listGallery(g)}).catch(error => console.error(error));
         function listGallery(g){
         let A= document.querySelector('div.a section');
            A.style.display = "inline-block";
